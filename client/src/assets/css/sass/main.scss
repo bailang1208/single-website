@@ -1,0 +1,197 @@
+@import "./_mixins.scss";
+
+$navbar-height: 64px;
+$navbar-height-xs: 64px;
+$navbar-height-md: 64px;
+$navbar-height-lg: 64px;
+
+$main-margin: 30px;
+
+body {
+  background: $background-color;
+}
+
+.navbar {
+  background: $foreground-color;
+  height: $navbar-height;
+  box-shadow: rgb(0 0 0 / 6%) 0px 5px 5px -3px, rgb(0 0 0 / 4%) 0px 8px 10px 1px, rgb(0 0 0 / 4%) 0px 3px 14px 2px;
+}
+
+main {
+  margin-top: $navbar-height + $main-margin;
+  margin-left: $main-margin;
+  margin-right: $main-margin;
+  margin-bottom: $main-margin - 20;
+}
+
+.btn {
+  border-radius: 50px;
+  outline: initial !important;
+  box-shadow: none !important;
+  box-shadow: initial !important;
+  font-size: 0.8rem;
+  padding: 0.5rem 1.25rem 0.5rem 1.25rem;
+  transition: background-color box-shadow 0.1s linear;
+  cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  .modal-body {
+    padding: 1.75rem;
+  }
+
+  .modal-header {
+    border-bottom: 1px solid $separator-color;
+  }
+
+  .modal-footer {
+    border-top: 1px solid $separator-color;
+  }
+
+  .close {
+    color: $primary-color;
+    text-shadow: initial;
+  }
+}
+
+.modal-content {
+  border: initial;
+  border-radius: 0.1rem;
+  background: $foreground-color;
+}
+
+.modal-dialog {
+  @include depth(2);
+}
+
+.modal-right {
+  padding-right: 0 !important;
+
+  .modal-dialog {
+    margin: 0 auto;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+    max-width: 800px;
+  }
+
+  .modal-content {
+    min-height: 100%;
+  }
+
+  .modal-header {
+    height: $navbar-height;
+    justify-content: center;
+
+    @include respond-below(xl) {
+      height: $navbar-height-lg;
+    }
+
+    @include respond-below(lg) {
+      height: $navbar-height-md;
+    }
+
+    @include respond-below(sm) {
+      height: $navbar-height-xs;
+    }
+  }
+
+  .modal-footer {
+    justify-content: center;
+  }
+
+  .modal.fade .modal-dialog {
+    transform: translate(25%, 0) !important;
+  }
+
+  .modal.show .modal-dialog {
+    transform: translate(0, 0) !important;
+  }
+}
+
+/*///// Home page /////*/
+$control-pan-width: 360px;
+$control-item-width: 100px;
+
+.home {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - #{$navbar-height} - #{$main-margin} - #{$main-margin});
+
+  .work-container {
+    width: calc(100% - #{$control-pan-width} - 30px);
+    height: 100%;
+    margin-right: 30px;
+
+    .background-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      .bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .frame-container {
+        position: relative;
+        width: 50%;
+        top: 0;
+        left: 25%;
+        // background: $separator-color;
+
+        img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          mask-position: center center;
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          mask-size: contain;
+          -webkit-mask-size: contain;
+          pointer-events: none;
+        }
+
+        .frame {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .control-pan {
+    width: $control-pan-width;
+    height: 100%;
+    background: $foreground-color;
+    box-shadow: 0 1px 15px rgb(0 0 0 / 4%), 0 1px 6px rgb(0 0 0 / 4%);
+    padding: 16px;
+
+    .item-container {
+      width: 100%;
+      height: $control-item-width + 24px;
+      display: grid;
+      grid-auto-flow: column;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      .item {
+        width: $control-item-width;
+        height: 100%;
+        margin-left: 4px;
+        margin-right: 4px;
+
+        img {
+          width: 100%;
+          border: solid 1px $separator-color;
+        }
+      }
+    }
+  }
+}
