@@ -9,7 +9,7 @@
     "start:client": "cd client && npm start",
     "install:server": "cd server && npm install",
     "install:client": "cd client && npm install",
-    "postinstall": "npm run install:server && npm install:client"
+    "postinstall": "npm run install:server && npm run install:client"
   },
   "repository": {
     "type": "git",
