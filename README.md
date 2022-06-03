@@ -13,8 +13,9 @@ React app and node backend runs at the same time.<br>
 Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.<br>
 The backend runs on <a href="http://localhost:3001">http://localhost:3001</a></p>
 
-<span style="color:red">Create .env file in project directory and add this line</span>
-'''GENERATE_SOURCEMAP=false'''
+>Create .env file in project directory and add this line:
+>
+> ***GENERATE_SOURCEMAP=false***
 
 <h2>Video Tutorial</h2>
 
